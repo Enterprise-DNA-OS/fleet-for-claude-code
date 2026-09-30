@@ -1,14 +1,22 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Fleet for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Fleet this week",
+    "subtitle": "What needs a decision before Monday's workshop meeting",
     "sections": [
-      {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
-      }
+      { "title": "Needs attention", "note": "Overdue services, expiring renewals, faults with no job, quiet work orders, stale odometers and odd fuel fills.", "sql": "select vehicle, reason, detail from v_attention order by reason, vehicle" },
+      { "title": "Service due", "sql": "select vehicle, service, state, km_left as \"km left\", due_on as \"due on\", booked from v_service_due where state <> 'ok' order by state desc, vehicle" },
+      { "title": "Renewals", "note": "WoF, CoF, rego, RUC and AU inspections that have expired or fall due soon.", "sql": "select vehicle, upper(kind) as renewal, due_on as \"due on\", km_left as \"km left\", state from v_renewals where state <> 'ok' order by state, vehicle" },
+      { "title": "Open work orders", "sql": "select number, vehicle, coalesce(vendor, 'in house') as workshop, status, age_days as \"days open\", quiet_days as \"days quiet\" from v_work_orders where status in ('open','in_progress','on_hold') order by age_days desc" }
+    ]
+  },
+  {
+    "name": "costs",
+    "title": "Running costs, last 12 months",
+    "subtitle": "Fuel, workshop and other costs per vehicle against distance travelled",
+    "sections": [
+      { "title": "Cost per km", "note": "Each currency is shown on its own line. Cents per km is total cost over distance recorded in the year.", "sql": "select vehicle, depot, currency, round(fuel_cents/100.0,2) as fuel, round(workshop_cents/100.0,2) as workshop, round(other_cents/100.0,2) as other, round(total_cents/100.0,2) as total, km, cents_per_km as \"cents per km\" from v_costs order by currency, cents_per_km desc nulls last" },
+      { "title": "Replacement signals", "note": "Signals, not a verdict: age 8+ years, 300,000+ km, 12-month workshop spend over 15% of purchase price, four or more jobs in a year.", "sql": "select vehicle, make_model as vehicle_model, age_years as \"age\", odometer, round(workshop_12m_cents/100.0,2) as \"workshop 12m\", signals from v_replace_plan order by signals desc, workshop_12m_cents desc" }
     ]
   }
 ]

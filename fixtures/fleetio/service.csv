@@ -1,0 +1,4 @@
+external_id,vehicle_name,completed_at,meter_value,service_task,vendor,reference,general_notes,labor_subtotal,parts_subtotal,line_item_subtotal,tax1,line_item_notes
+SE-5001,TS-08 Transit,2026-07-14,86500,Engine Oil & Filter Replacement,Onehunga Diesel,INV-7781,Scheduled service,120.00,95.50,,32.33,
+SE-5001,TS-08 Transit,2026-07-14,,Tire Rotation,,,,40.00,0,,,Front to rear
+SE-5002,TS-08 Transit,2026-08-30,,Wiper Blade Replacement,Northside Tyres,NT-4410,,,,38.00,5.70,

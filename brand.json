@@ -1,9 +1,9 @@
 {
   "_": "Your business on every document and view. Change these and run `npm run docs` or `npm run view`.",
-  "business_name": "Your Business",
+  "business_name": "Totara Services (demo)",
   "logo_path": "",
-  "primary": "#6654f5",
-  "accent": "#ca5a8b",
+  "primary": "#1f5f8b",
+  "accent": "#e0a100",
   "ink": "#0b0c18",
   "paper": "#ffffff",
   "footer_line": "Prepared with Fleet for Claude Code."

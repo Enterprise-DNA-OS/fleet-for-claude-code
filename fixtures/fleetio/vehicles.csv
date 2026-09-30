@@ -1,0 +1,4 @@
+name,vin,license_plate,year,make,model,type,group,status,current_meter,meter_unit,fuel_type,purchase_date,purchase_price,Custom Cost Centre
+TS-08 Transit,DEMOVIN0000000008,PLM108,2019,Ford,Transit Custom,Van,Auckland,Active,88000,km,Diesel,2019-07-01,48500,Drainage
+TS-09 Canter,DEMOVIN0000000009,PLM109,2017,Fuso,Canter 515,Box Truck,Hamilton,In Shop,62137,mi,Diesel,2017-03-12,72000,Plumbing
+TS-01 Hilux,DEMOVIN0000000001,PLM101,2021,Toyota,Hilux SR,Pickup,Auckland,Active,184200,km,Diesel,2021-03-15,58900,Plumbing
